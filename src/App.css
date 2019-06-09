@@ -14,6 +14,19 @@
 .app__header {
   background-color: rgb(76, 76, 141);
 }
+
+.main-image {
+  height: 200px;
+}
+.sub-image {
+  height: 75px;
+}
+.container {
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+}
 .app__header,
 .app__main {
   width: 100%;
