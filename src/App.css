@@ -27,6 +27,10 @@
   flex-wrap: nowrap;
   justify-content: space-around;
 }
+.item {
+  display: flex;
+  align-items: center;
+}
 .app__header,
 .app__main {
   width: 100%;
