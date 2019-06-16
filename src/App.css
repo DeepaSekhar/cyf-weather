@@ -30,6 +30,14 @@
 .item {
   display: flex;
   align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 20px;
+}
+.text-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 .app__header,
 .app__main {
