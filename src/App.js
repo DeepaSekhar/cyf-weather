@@ -1,7 +1,7 @@
 import React, { Component } from "react";
+import moment from "moment";
 import "./App.css";
-
-import FakeWeather from "./Data/Fakeweather.json";
+import fakeWeather from "./Data/Fakeweather.json";
 import weatherImage from "./img/weather-icons/clear.svg";
 import Search from "./Components/Search";
 import CurrentWeather from "./Components/CurrentWeather";
@@ -14,20 +14,14 @@ class App extends Component {
       imgsrc: "https://placekitten.com/200/300"
     };
   }
-  updateWeather() {
-    const weather = FakeWeather.map(item => (
-      <WeatherUpdate WeatherUpdate={item} />
-    ));
-  }
   render() {
-    console.log(weatherImage);
     return (
       <div className="app">
         <Search />
 
         <main className="app__main">
-          <CurrentWeather />
-          {this.weather}
+          <CurrentWeather data={fakeWeather.list[0]} />
+          <WeatherUpdate data={fakeWeather.list} />
         </main>
       </div>
     );
