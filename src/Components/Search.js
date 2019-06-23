@@ -1,11 +1,17 @@
 import React, { Component } from "react";
 
 class Search extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      cityName: " "
+    };
+  }
   search(event) {
     console.log(event);
   }
-  typing(event) {
-    console.log("hi");
+  inputTtyping(event) {
+    this.setState({ cityName: event.target.value });
   }
   render() {
     return (
@@ -15,7 +21,7 @@ class Search extends React.Component {
             type="text"
             className="input"
             value=""
-            onChange={this.typing}
+            onChange={this.inputTyping}
           />
 
           <input type="submit" className="submit-button" value="submit" />

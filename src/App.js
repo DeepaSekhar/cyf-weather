@@ -29,6 +29,12 @@ class App extends Component {
         }, 1500);
       });
   }
+  fetchData() {
+    var city = "miami";
+    fetch(
+      `http://api.openweathermap.org/data/2.5/forecast?q=${city}&cnt=8&units=metric&appid=238009cae947ae16ebe8349714155ccc`
+    );
+  }
 
   render() {
     if (this.state.isLoading) {
