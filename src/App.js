@@ -11,20 +11,43 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      imgsrc: "https://placekitten.com/200/300"
+      isLoading: true,
+      info: {}
     };
   }
-  render() {
-    return (
-      <div className="app">
-        <Search />
+  componentDidMount() {
+    fetch(
+      "http://api.openweathermap.org/data/2.5/forecast?q=london&cnt=8&units=metric&appid=238009cae947ae16ebe8349714155ccc"
+    )
+      .then(res => res.json())
+      .then(data => {
+        setTimeout(() => {
+          this.setState({
+            isLoading: false,
+            info: data
+          });
+        }, 1500);
+      });
+  }
 
-        <main className="app__main">
-          <CurrentWeather data={fakeWeather.list[0]} />
-          <WeatherUpdate data={fakeWeather.list} />
-        </main>
-      </div>
-    );
+  render() {
+    if (this.state.isLoading) {
+      return "Loading....";
+    } else {
+      console.log(this.state.info);
+      return (
+        <div className="app">
+          <Search />
+
+          <main className="app__main">
+            <CurrentWeather data={this.state.info.list[0]} />
+
+            {/* <WeatherUpdate data={fakeWeather.list} /> */}
+            <WeatherUpdate data={this.state.info.list} />
+          </main>
+        </div>
+      );
+    }
   }
 }
 

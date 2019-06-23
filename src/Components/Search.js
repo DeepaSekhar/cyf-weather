@@ -1,12 +1,27 @@
-import React from "react";
+import React, { Component } from "react";
 
-export default function Search() {
-  return (
-    <header className="app__header">
-      <div className="searchBox">
-        <textarea className="input">London</textarea>
-        <button className="submit-button">Submit</button>
-      </div>
-    </header>
-  );
+class Search extends React.Component {
+  search(event) {
+    console.log(event);
+  }
+  typing(event) {
+    console.log("hi");
+  }
+  render() {
+    return (
+      <header className="app__header">
+        <form className="searchBox" onSubmit={this.search}>
+          <input
+            type="text"
+            className="input"
+            value=""
+            onChange={this.typing}
+          />
+
+          <input type="submit" className="submit-button" value="submit" />
+        </form>
+      </header>
+    );
+  }
 }
+export default Search;

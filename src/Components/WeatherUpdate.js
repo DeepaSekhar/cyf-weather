@@ -4,7 +4,7 @@ import WeatherChunks from "./WeatherChunk";
 
 export default function WeatherUpdate(props) {
   return (
-    <div>
+    <div className="container">
       {props.data.map(item => {
         return <WeatherChunks data={item} />;
       })}

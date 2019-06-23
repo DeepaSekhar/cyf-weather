@@ -1,26 +1,16 @@
 import React from "react";
-
-import { createConfigItem } from "@babel/core";
+import Svgimage from "../Utils";
+import moment from "moment";
 export default function WeatherChunk(props) {
   const id = props.data.weather[0].id;
-  if (id > 801 && id < 805) {
-    console.log("mostlycloudy.svg");
-  } else if (id == 801) {
-    console.log("partlycloudy.svg");
-  }
+  const img = Svgimage(id);
+  const hour = moment(props.data.dt_txt).format("hh, mm");
+
   return (
-    <div className="detail">
-      <div className="container">
-        <div className="item">
-          <h5>{props.data.dt_txt}</h5>
-          <img
-            className="sub-image"
-            src="/src/img/weather-icons/clear.svg"
-            alt="weather"
-          />
-          <h5>{Math.round(props.data.main.temp)}&deg;C</h5>
-        </div>
-      </div>
+    <div className="item-container">
+      <h5>{hour}</h5>
+      <img className="sub-image" src={img} alt="weather" />
+      <h5>{Math.round(props.data.main.temp)}&deg;C</h5>
     </div>
   );
 }

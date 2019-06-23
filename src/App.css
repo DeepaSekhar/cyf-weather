@@ -14,6 +14,10 @@
 .app__header {
   background-color: rgb(76, 76, 141);
 }
+.main-data {
+  display: flex;
+  flex-direction: column;
+}
 
 .main-image {
   height: 200px;
@@ -27,7 +31,7 @@
   flex-wrap: nowrap;
   justify-content: space-around;
 }
-.item {
+.item-container {
   display: flex;
   align-items: center;
   flex-direction: column;
